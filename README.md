@@ -8,22 +8,29 @@
  ## Path-finding algorithms
  Algorithms:
  - Depth-first, breadth-first, best-first
- - Minimax
+ - Minimax + Alpha-Beta pruning
  - Dijkstra
- - A*
+ - A and A*
  
  Games: Sudoku, Tic Tac Toe, Maze
+ - To mention: River-crossing, Chess
  
  ## Genetic algorithm
  Games: Optimization of polynomials, Jigsaw
  
  ## Reinforcement learning
- Games: Snake
+ (Includes Q-learning)
+ 
+ Games: Nim (again), Snake
+ 
+ ## Neural networks
+ Games: Nim
  
  ## NEAT
  (Includes an explanation of neural networks)
  
- Games: Flappy Birds, Pacman
+ Games: [Flappy Birds](https://github.com/KrisNguyen135/AI-Approaches/NEAT/Flappy),
+ Pacman, Chrome T-Rex
  
  ## Deep reinforcement learning
  Games: **Pending**
