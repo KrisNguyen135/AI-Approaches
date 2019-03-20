@@ -3,7 +3,6 @@ import turtle
 from freegames import vector
 
 import time
-import tkinter
 from math import sqrt
 
 
@@ -15,7 +14,6 @@ class Game:
         self.bird = vector(0, 0)
         self.balls = []
         self.score = 0
-        #self.root = tkinter.Tk()
 
     def tap(self, x, y):
         """Move bird up in response to screen tap."""
@@ -59,8 +57,7 @@ class Game:
             if self.show:
                 self.draw(False)
                 time.sleep(1)
-            #self.root.destroy()
-            #self.root.quit()
+
             return False
 
         for ball in self.balls:
@@ -68,8 +65,7 @@ class Game:
                 if self.show:
                     self.draw(False)
                     time.sleep(1)
-                #self.root.destroy()
-                #self.root.quit()
+
                 return False
 
         if self.show:
@@ -82,8 +78,6 @@ class Game:
             result = outputs.index(max(outputs))
             if result == 0:
                 self.tap(None, None)
-
-        #turtle.ontimer(self.move, 50)
 
         return True
 
@@ -123,7 +117,6 @@ class Game:
                 time.sleep(0.05)
 
             keep_moving = self.move()
-        #turtle.done()
 
         return self.score
 
