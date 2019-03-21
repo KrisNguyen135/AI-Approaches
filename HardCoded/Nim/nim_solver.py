@@ -4,7 +4,7 @@ from HardCoded.Nim.nim import Game  # if executing from directory root
 import random
 
 
-def make_mode(num_sticks, max_sticks):
+def make_move(num_sticks, max_sticks):
     if num_sticks <= max_sticks:
         return num_sticks
     else:
@@ -16,5 +16,5 @@ def make_mode(num_sticks, max_sticks):
 
 
 if __name__ == '__main__':
-    game = Game(auto=make_mode)
+    game = Game(auto=make_move)
     game.run()
