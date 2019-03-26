@@ -3,4 +3,4 @@ from HardCoded.MineSweeper.minesweeper import Game  # if executing from director
 
 
 if __name__ == '__main__':
-    game = Game.main()
+    game = Game(10, 10)
