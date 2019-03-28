@@ -1,5 +1,6 @@
-import random
+import random; random.seed(0)
 from tkinter import Tk, Canvas
+import platform
 
 
 class Game:
@@ -17,8 +18,12 @@ class Game:
             self.canvas = Canvas(self.master,
                                  width=self.WIDTH, height=self.HEIGHT)
             self.count = 0
-            self.canvas.bind("<Button-1>", game.callback_left)
-            self.canvas.bind("<Button-3>", game.callback_right)
+
+            self.canvas.bind('<Button-1>', game.callback_left)
+            if platform.system() == 'Darwin':
+                self.canvas.bind('<Button-2>', game.callback_right)  # OSX
+            else:
+                self.canvas.bind('<Button-3>', game.callback_right)  # Windows
 
             self.game = game
 
@@ -73,6 +78,8 @@ class Game:
             self.canvas.create_text(placement[0] * self.cell_size + self.half_cell,
                                     placement[1] * self.cell_size + self.half_cell,
                                     text=mine_count, fill="black")
+
+            return mine_count  # to update self.game.board
 
         def flag_graphic(self, cell):
             placement = cell.placement
@@ -140,7 +147,8 @@ class Game:
             return self.adjacent_cells
 
         def mine_probability(self):
-            a = random.randrange(5)
+            # TODO: change randrange to change mine probability
+            a = random.randrange(7)
             if a == 0:
                 self.is_mine = True
 
@@ -162,7 +170,10 @@ class Game:
             self.find_adjacent_cell()
             self.find_adjacent_mines()
             self.game.gamestate.selected_cells.append(self)
-            self.game.window.number_graphic(self)
+            mine_count = self.game.window.number_graphic(self)
+            if self.game.auto is not None:
+                self.game.board[self.placement[0]][self.placement[1] - 1] \
+                    = mine_count
             if self.is_mine:
                 self.game.gamestate.trip_mine()
 
@@ -241,11 +252,17 @@ class Game:
                     self.mines.append(cell)
 
 
-    def __init__(self):
+    def __init__(self, auto=None):
         # Objects
         self.window = Game.MainWindow(self)
         self.gamestate = Game.GameState(self)
         self.a_cell = Game.Cell([1, 1], self)
+
+        self.auto = auto
+        if self.auto is not None:
+            self.board = [['' for _ in range(15)] for __ in range(15)]
+            self.step_count = 0
+            self.step_limit = 10
 
     def find_name(self,placement):
         a = self.a_cell.letters[placement[0]]
@@ -308,13 +325,45 @@ class Game:
             self.window.grey_graphic(cell)
             self.gamestate.flags.remove(cell)
 
+    def auto_solve(self):
+        if self.gamestate.game_in_prog and self.step_count < self.step_limit:
+            self.step_count += 1
+
+            to_flag, to_open = self.auto(self.board)
+
+            print(to_flag)
+            print(to_open)
+            print('*' * 40)
+
+            for col, row in to_flag:
+                self.board[col][row] = 'FLAGGED'
+
+                placement = [col, row + 1]
+                name = self.find_name(placement)
+                cell = self.gamestate.cell_dict[name]
+
+                if cell not in self.gamestate.flags:
+                    self.window.flag_graphic(cell)
+
+            for col, row in to_open:
+                placement = [col, row + 1]
+                name = self.find_name(placement)
+                cell = self.gamestate.cell_dict[name]
+                self.window.grey_graphic(cell)
+
+                cell.select_cell()
+
+            self.window.master.after(1, self.auto_solve)
+
     def run(self):
         self.gamestate.new_game()
         self.window.event_timer()
         self.window.canvas.pack()
+        if self.auto is not None:
+            self.window.master.after(1, self.auto_solve)
         self.window.master.mainloop()
 
 
 if __name__ == '__main__':
-    game = Game()
+    game = Game(auto=1)
     game.run()

@@ -22,10 +22,10 @@
  ## Reinforcement learning
  (Includes Q-learning)
  
- Games: Nim (again), Snake
+ Games: Nim (revisited), Snake
  
  ## Machine learning & Deep learning
- Games: Nim (again)
+ Games: Nim (revisited) (ML), Minesweeper (revisited) (DL)
  
  ## NEAT
  (Includes an explanation of neural networks)
