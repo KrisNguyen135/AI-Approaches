@@ -1,4 +1,4 @@
-import random; random.seed(0)
+import random#; random.seed(0)
 from tkinter import Tk, Canvas
 import platform
 
@@ -261,8 +261,6 @@ class Game:
         self.auto = auto
         if self.auto is not None:
             self.board = [['' for _ in range(15)] for __ in range(15)]
-            self.step_count = 0
-            self.step_limit = 10
 
     def find_name(self,placement):
         a = self.a_cell.letters[placement[0]]
@@ -326,14 +324,12 @@ class Game:
             self.gamestate.flags.remove(cell)
 
     def auto_solve(self):
-        if self.gamestate.game_in_prog and self.step_count < self.step_limit:
-            self.step_count += 1
-
+        if self.gamestate.game_in_prog:
             to_flag, to_open = self.auto(self.board)
 
-            print(to_flag)
+            '''print(to_flag)
             print(to_open)
-            print('*' * 40)
+            print('*' * 40)'''
 
             for col, row in to_flag:
                 self.board[col][row] = 'FLAGGED'
@@ -349,9 +345,9 @@ class Game:
                 placement = [col, row + 1]
                 name = self.find_name(placement)
                 cell = self.gamestate.cell_dict[name]
-                self.window.grey_graphic(cell)
-
-                cell.select_cell()
+                #self.window.grey_graphic(cell)
+                if cell not in self.gamestate.selected_cells:
+                    cell.select_cell()
 
             self.window.master.after(1, self.auto_solve)
 

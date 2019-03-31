@@ -1,7 +1,7 @@
 from HardCoded.MineSweeper.minesweeper import Game  # if executing from directory root
 #from minesweeper import Game  # if executing from current directory
 
-import random; random.seed(1)
+import random#; random.seed(1)
 
 
 class Solver:
@@ -81,10 +81,11 @@ def generate_action(board):
     to_flag, to_open = solver.generate_stats()
 
     if len(to_flag) == 0 and len(to_open) == 0:
-        to_open.append(random.choice([
-            (col, row) for col in range(15) for row in range(15)
-            if solver.board[col][row] == ''
-        ]))
+        unopened = [(col, row) for col in range(15) for row in range(15)
+                    if solver.board[col][row] == '']
+
+        if len(unopened) > 0:
+            to_open.append(random.choice(unopened))
 
     return to_flag, to_open
 

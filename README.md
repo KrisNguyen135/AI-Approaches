@@ -4,7 +4,7 @@
  
  ## Hard-coded logic/algorithms
  Games: [Nim](https://github.com/KrisNguyen135/AI-Approaches/tree/master/HardCoded/Nim),
- Minesweeper (combined with a probabilistic approach)
+ [Minesweeper](https://github.com/KrisNguyen135/AI-Approaches/tree/master/HardCoded/MineSweeper)
  
  ## Path-finding algorithms
  Algorithms:
