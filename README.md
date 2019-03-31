@@ -1,72 +1,72 @@
 # Artificial Intelligence Approaches in Classic Games
- Implementing AI ideas and models in the adversarial context of games such as
- Nim, Snake, or even Flappy Birds
  
- ## Hard-coded logic/algorithms
+Implementing AI ideas and models in the adversarial context of games such as
+Nim, Snake, or even Flappy Birds
  
- Hard-coded logic, low-level abstraction, not a lot of generalization.
+## Hard-coded logic/algorithms
  
- Games:
- - [Nim](https://github.com/KrisNguyen135/AI-Approaches/tree/master/HardCoded/Nim)
- - [Minesweeper](https://github.com/KrisNguyen135/AI-Approaches/tree/master/HardCoded/MineSweeper)
- (future adjustment: implementing a probabilistic approach)
+Hard-coded logic, low-level abstraction, not a lot of generalization.
  
- ## Path-finding algorithms
+Games:
+- [Nim](https://github.com/KrisNguyen135/AI-Approaches/tree/master/HardCoded/Nim)
+- [Minesweeper](https://github.com/KrisNguyen135/AI-Approaches/tree/master/HardCoded/MineSweeper)
+(future improvement: implementation of a probabilistic approach)
  
- Agents with some degree of autonomy that self-explore the search space, but
- there is still a lot of low-level specification.
+## Path-finding algorithms
  
- Algorithms:
- - Depth-first, breadth-first, best-first
- - Minimax + Alpha-Beta pruning
- - Dijkstra
- - A and A*
+Agents with some degree of autonomy that self-explore the search space, but
+there is still a lot of low-level specification.
  
- Games:
- - Sudoku
- - Tic Tac Toe
- - Maze
- - To mention: River-crossing, Chess
+Algorithms:
+- Minimax + Alpha-Beta pruning
+- Dijkstra
+- A and A*
  
- ## Genetic algorithm
+Games:
+- [Maze](https://github.com/KrisNguyen135/AI-Approaches/tree/master/PathFinding/Maze):
+depth-first and breadth-first search (future improvement: best-first search)
+- Sudoku
+- Tic Tac Toe
+- To mention: River-crossing, Chess
  
- Freedom in generating new solutions, only specifications in the fitness
- function and how to preserve good individuals.
+## Genetic algorithm
  
- Games:
- - Optimization of polynomials
- - Jigsaw
+Freedom in generating new solutions, only specifications in the fitness
+function and how to preserve good individuals.
  
- ## Reinforcement learning
+Games:
+- Optimization of polynomials
+- Jigsaw
  
- Self-exploring agents, only specifications in the scoring function, including
- Q-learning.
+## Reinforcement learning
  
- Games: 
- - Nim (revisited)
- - Snake
+Self-exploring agents, only specifications in the scoring function, including
+Q-learning.
  
- ## Machine learning & Deep learning
+Games: 
+- Nim (revisited)
+- Snake
  
- Higher level of abstraction, relies on recognizing the pattern as opposed to
- random exploration or low-level specification. 
+## Machine learning & Deep learning
  
- Games:
- - Nim (revisited): line fitting with ML
- - Minesweeper (revisited): pattern processing with DL
+Higher level of abstraction, relies on recognizing the pattern as opposed to
+random exploration or low-level specification. 
  
- ## NEAT
+Games:
+- Nim (revisited): line fitting with ML
+- Minesweeper (revisited): pattern processing with DL
  
- Combine deep learning and genetic algorithm.
+## NEAT
  
- Games:
- - [Flappy Birds](https://github.com/KrisNguyen135/AI-Approaches/tree/master/NEAT/Flappy)
- - Pacman
- - Chrome T-Rex
+Combine deep learning and genetic algorithm.
  
- ## Deep reinforcement learning
+Games:
+- [Flappy Birds](https://github.com/KrisNguyen135/AI-Approaches/tree/master/NEAT/Flappy)
+- Pacman
+- Chrome T-Rex
  
- Combine deep learning and reinforcement learning.
+## Deep reinforcement learning
  
- Games: **Pending**
+Combine deep learning and reinforcement learning.
  
+Games: **Pending**
