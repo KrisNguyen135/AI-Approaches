@@ -84,6 +84,9 @@ def generate_path_dfs(board, start_pos, target):
             yield list(reversed(temp_path))
 
 
+# TODO: remove dfs and include it as a project idea, implement best-fs instead
+
+
 if __name__ == '__main__':
     game = Game(input_='input/small.txt', auto=generate_path_bfs)
     #game = Game(input_='input/small.txt', auto=generate_path_dfs)
