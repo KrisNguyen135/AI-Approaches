@@ -1,33 +1,29 @@
 # Artificial Intelligence Approaches in Classic Games
  
 Implementing AI ideas and models in the adversarial context of games such as
-Nim, Snake, or even Flappy Birds
+Nim, Snake, Tic Tac Toe, or even Flappy Birds
  
 ## Hard-coded logic/algorithms
  
-Hard-coded logic, low-level abstraction, not a lot of generalization.
+Hard-coded logic, low-level abstraction, no considerable generalization.
  
 Games:
 - [Nim](https://github.com/KrisNguyen135/AI-Approaches/tree/master/HardCoded/Nim)
 - [Minesweeper](https://github.com/KrisNguyen135/AI-Approaches/tree/master/HardCoded/MineSweeper)
-(future improvement: implementation of a probabilistic approach)
+(to be mentioned: implementation of a probabilistic approach)
  
 ## Path-finding algorithms
  
 Agents with some degree of autonomy that self-explore the search space, but
-there is still a lot of low-level specification.
- 
-Algorithms:
-- Minimax + Alpha-Beta pruning
-- Dijkstra
-- A and A*
+there is still significant low-level specification.
  
 Games:
 - [Maze](https://github.com/KrisNguyen135/AI-Approaches/tree/master/PathFinding/Maze):
-depth-first and breadth-first search (future improvement: best-first search)
-- Sudoku
-- Tic Tac Toe
-- To mention: River-crossing, Chess
+breadth-first search (to be mentioned: river crossing puzzles)
+- [Sudoku](https://github.com/KrisNguyen135/AI-Approaches/tree/master/PathFinding/Sudoku):
+depth-first search
+- [Tic Tac Toe](https://github.com/KrisNguyen135/AI-Approaches/tree/master/PathFinding/TicTacToe):
+minimax + alpha-beta pruning (to be mentioned: chess)
  
 ## Genetic algorithm
  
