@@ -9,6 +9,6 @@ class Game:
 
     def get_value(self, x):
         if self.x_limits[0] <= x <= self.x_limits[1]:
-            return sum([x**i * self.coefs[i] for i in range(self.degree + 1)])
+            return sum([x**i * self.coefs[-i - 1] for i in range(self.degree + 1)])
 
         return False

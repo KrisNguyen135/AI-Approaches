@@ -3,4 +3,4 @@ from GeneticAlgorithm.Optimization.optimization import Game  # if executing from
 
 
 if __name__ == '__main__':
-    game = Game(2, (-10, 10), [1, -2, 1])
+    game = Game(2, (0, 16), [1, -2, 1])
