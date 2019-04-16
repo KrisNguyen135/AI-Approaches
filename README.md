@@ -31,8 +31,11 @@ Freedom in generating new solutions, only specifications in the fitness
 function and how to preserve good individuals.
  
 Games:
-- Optimization of polynomials
-- Jigsaw
+- [Optimization of polynomials](https://github.com/KrisNguyen135/AI-Approaches/tree/master/GeneticAlgorithm/Optimization):
+a form of search, to be compared with other optimization schemes (e.g., 
+gradient descent)
+- [Jigsaw](https://github.com/KrisNguyen135/AI-Approaches/tree/master/GeneticAlgorithm/Jigsaw):
+customized, more involved fitness crossover functions
  
 ## Reinforcement learning
  
