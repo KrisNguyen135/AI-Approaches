@@ -39,11 +39,12 @@ customized, more involved fitness crossover functions
  
 ## Reinforcement learning
  
-Self-exploring agents, only specifications in the scoring function, including
+Self-exploring agents, only specifications in the scoring function, using
 Q-learning.
  
 Games: 
-- Nim (revisited)
+- [Nim (revisited)](https://github.com/KrisNguyen135/AI-Approaches/tree/master/ReinforcementLearning/Nim):
+Q-value matrix (to be mentioned: the requirement of good opponents)
 - Snake
  
 ## Machine learning & Deep learning

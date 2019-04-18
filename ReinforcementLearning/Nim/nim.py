@@ -5,9 +5,10 @@ class Game:
     """Command line game of Nim."""
 
     def __init__(self, num_sticks=13, max_sticks=3,
-                 player_first=True, auto=None):
+                 player_first=True, hard=False, auto=None):
 
         self.player_first = player_first
+        self.hard= hard
         self.auto = auto
 
         self.num_sticks = num_sticks
@@ -17,7 +18,7 @@ class Game:
     def ask_for_move(self):
         while True:
             if self.auto is not None:
-                move = self.auto(self.num_sticks, self.max_sticks)
+                move = self.auto(self.num_sticks)
             else:
                 move = input('Enter the number of sticks to take: ')
 
@@ -49,7 +50,12 @@ class Game:
                 move = self.ask_for_move()
             else:
                 print("Computer's turn")
-                move = random.randint(1, min(self.max_sticks, self.num_sticks))
+                if self.hard:
+                    move = self.num_sticks % (self.max_sticks + 1)
+                    if move == 0:
+                        move = random.randint(1, self.max_sticks)
+                else:
+                    move = random.randint(1, min(self.max_sticks, self.num_sticks))
 
             print(f'{move} stick(s) taken')
             self.num_sticks -= move
@@ -59,5 +65,7 @@ class Game:
         print('No sticks remaining')
         if turn == 0:
             print('Computer won')
+            return -1
         else:
             print('Player won')
+            return 1
