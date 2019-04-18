@@ -36,6 +36,8 @@ a form of search, to be compared with other optimization schemes (e.g.,
 gradient descent)
 - [Jigsaw](https://github.com/KrisNguyen135/AI-Approaches/tree/master/GeneticAlgorithm/Jigsaw):
 customized, more involved fitness crossover functions
+- [Traveling salesman](https://github.com/KrisNguyen135/AI-Approaches/tree/master/GeneticAlgorithm/TravelingSalesman):
+elitism and ordered crossover
  
 ## Reinforcement learning
  

@@ -7,7 +7,9 @@ import random; random.seed(4)
 
 
 class Solver:
-    def __init__(self, pieces, pop_size=100, random_size=0.2, n_gens=10):
+    def __init__(self, pieces, viz_func,
+                 pop_size=100, random_size=0.2, n_gens=10):
+
         self.threshold = self.generate_threshold(pieces, p=93)
         self.piece_edges = np.array([np.array([
             piece[0, :],
@@ -16,6 +18,8 @@ class Solver:
             piece[:, 0]
         ]) for piece in pieces])
         self.n_segments = int(math.sqrt(len(pieces)))
+
+        self.viz_func = viz_func
 
         self.pop_size = pop_size
         self.random_size = random_size
@@ -837,7 +841,7 @@ class Solver:
 
             print('=' * 30)
             print(f'Current best individual of {i}-th generation:')
-            game.visualize_solution(self.prev_pop[-1])
+            self.viz_func(self.prev_pop[-1])
 
             best_fitness_matrix_pair = self.fitness(self.prev_pop[-1])
             print(best_fitness_matrix_pair[0])
@@ -867,5 +871,5 @@ if __name__ == '__main__':
     game = Game('input/michelangelo-creation-of-adam.jpg')
     pieces = game.pieces
 
-    solver = Solver(pieces)
+    solver = Solver(pieces, game.visualize_solution)
     solver.run()

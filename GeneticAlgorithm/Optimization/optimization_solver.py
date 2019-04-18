@@ -60,11 +60,7 @@ class Solver:
 
             parent1 = sorted_pop[parent1_id]
             parent2 = sorted_pop[parent2_id]
-            # Randomly pick the order for parents
-            if random.uniform(0, 1) < 0.5:
-                child = self.crossover(parent1, parent2)
-            else:
-                child = self.crossover(parent2, parent1)
+            child = self.crossover(parent1, parent2)
 
             new_pop.append(child)
 
