@@ -2,11 +2,12 @@ from GeneticAlgorithm.Optimization.optimization import Game  # if executing from
 # from optimization import Game  # if executing from current directory
 
 import random
+import matplotlib.pyplot as plt
 
 
 class Solver:
     def __init__(self, length, game, pop_size=100, random_size=0.2,
-                 mutation_prop=0.01, n_gens=10):
+                 mutation_prop=0.01, n_gens=10, viz=True):
         self.length = length
         self.game = game
 
@@ -14,6 +15,8 @@ class Solver:
         self.random_size = random_size
         self.mutation_prop = mutation_prop
         self.n_gens = n_gens
+
+        self.viz = viz
 
         self.prev_pop = None
         self.temp_pop = []
@@ -72,19 +75,40 @@ class Solver:
         # Create initial population
         self.temp_pop = self.generate_random_pop(self.pop_size)
 
+        if self.viz:
+            points = []
+
         # Run evolution
         for i in range(self.n_gens):
             self.temp_pop, self.prev_pop = self.generate_new_pop()
             print(f'Current best individual of {i}-th generation:')
             print(self.prev_pop[-1])
-            print(f'Fitness: {self.fitness(self.prev_pop[-1])}')
+
+            fitness = self.fitness(self.prev_pop[-1])
+            print(f'Fitness: {fitness}')
+
+            if self.viz:
+                temp_point = self.prev_pop[-1], fitness
+                self.visualize(points, temp_point)
+                points.append(temp_point)
+                sorted(points)
 
         return self.prev_pop[-1]
 
+    @staticmethod
+    def visualize(points, temp_point):
+        for point in points:
+            plt.plot(point[0], point[1], 'bo')
+        plt.plot(temp_point[0], temp_point[1], 'ro')
+        plt.xticks(rotation='vertical')
+
+        plt.show()
 
 if __name__ == '__main__':
     game = Game(3, (0, 1024), [1, -205, 100, -1000])
+
     #solver = Solver(10, game, pop_size=100, n_gens=10)
-    #solver = Solver(10, game, pop_size=200, n_gens=20)
-    solver = Solver(10, game, pop_size=400, n_gens=40)
+    solver = Solver(10, game, pop_size=200, n_gens=20)
+    #solver = Solver(10, game, pop_size=400, n_gens=40)
+
     solver.run()

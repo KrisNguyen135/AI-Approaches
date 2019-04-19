@@ -271,7 +271,7 @@ class Solver:
             def recur_shift_cluster(cluster_id, direction):
                 """
                 Try to shift all pieces in a cluster in the current solution in
-                a direction. (0 --> up, 1--> right, etc.)
+                a direction. (0.png --> up, 1--> right, etc.)
                 Return `None` if successfully shifted, -1 if conflicting with
                 bounds.
                 """
@@ -586,7 +586,7 @@ class Solver:
                                     piece_cluster_id[i] = piece_cluster_id[piece_id]
 
             cluster_id_set = set(piece_cluster_id)
-            cluster_id_set.discard(0)  # remove 0 if exist
+            cluster_id_set.discard(0)  # remove 0.png if exist
 
             cluster_to_piece_set = {}
             for piece_id in range(self.n_segments ** 2):
@@ -769,7 +769,7 @@ class Solver:
         for i in range(pop_size):
             shuffled_indices = np.random.permutation(indices)
 
-            orientations = []  # 0: not rotated, 1: 90-degree clock-wise, etc.
+            orientations = []  # 0.png: not rotated, 1: 90-degree clock-wise, etc.
             for _ in shuffled_indices:
                 orientation = np.random.randint(0, 4)
                 orientations.append(orientation)

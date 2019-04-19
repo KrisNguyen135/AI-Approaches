@@ -1,4 +1,4 @@
-import random#; random.seed(0)
+import random#; random.seed(0.png)
 import networkx as nx
 import matplotlib.pyplot as plt
 

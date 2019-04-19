@@ -1,6 +1,3 @@
-import random
-
-
 class Game:
     def __init__(self, degree, x_limits, coefs):
         self.degree = degree

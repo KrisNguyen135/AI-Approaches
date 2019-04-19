@@ -1,4 +1,4 @@
-import random#; random.seed(0)
+import random#; random.seed(0.png)
 from tkinter import Tk, Canvas
 import platform
 

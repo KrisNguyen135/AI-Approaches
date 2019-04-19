@@ -19,9 +19,41 @@ there is still significant low-level specification.
  
 Games:
 - [Maze](https://github.com/KrisNguyen135/AI-Approaches/tree/master/PathFinding/Maze):
-breadth-first search (to be mentioned: river crossing puzzles)
+breadth-first search (to be mentioned: depth-first search, river crossing puzzles)
 - [Sudoku](https://github.com/KrisNguyen135/AI-Approaches/tree/master/PathFinding/Sudoku):
-depth-first search
+depth-first search (to be mentioned: why not BFS)
+```
+Before:
++-------+-------+-------+
+| 3 0 0 | 2 0 0 | 0 0 0 |
+| 0 0 0 | 1 0 7 | 0 0 0 |
+| 7 0 6 | 0 3 0 | 5 0 0 |
++-------+-------+-------+
+| 0 7 0 | 0 0 9 | 0 8 0 |
+| 9 0 0 | 0 2 0 | 0 0 4 |
+| 0 1 0 | 8 0 0 | 0 5 0 |
++-------+-------+-------+
+| 0 0 9 | 0 4 0 | 3 0 1 |
+| 0 0 0 | 7 0 2 | 0 0 0 |
+| 0 0 0 | 0 0 8 | 0 0 6 |
++-------+-------+-------+
+
+After:
++-------+-------+-------+
+| 3 9 4 | 2 8 5 | 4 6 7 |
+| 8 9 5 | 1 6 7 | 2 0 3 |
+| 7 2 6 | 9 3 4 | 5 1 8 |
++-------+-------+-------+
+| 6 7 3 | 4 5 9 | 1 8 2 |
+| 9 5 8 | 6 2 1 | 7 3 4 |
+| 4 1 2 | 8 7 3 | 6 5 9 |
++-------+-------+-------+
+| 2 8 9 | 5 4 6 | 3 7 1 |
+| 1 6 1 | 7 9 2 | 8 4 5 |
+| 5 4 7 | 3 1 8 | 9 2 6 |
++-------+-------+-------+
+```
+
 - [Tic Tac Toe](https://github.com/KrisNguyen135/AI-Approaches/tree/master/PathFinding/TicTacToe):
 minimax + alpha-beta pruning (to be mentioned: chess)
  
@@ -34,8 +66,14 @@ Games:
 - [Optimization of polynomials](https://github.com/KrisNguyen135/AI-Approaches/tree/master/GeneticAlgorithm/Optimization):
 a form of search, to be compared with other optimization schemes (e.g., 
 gradient descent)
+
+<img src="https://github.com/KrisNguyen135/AI-Approaches/blob/master/Media/Optimization/combined.gif" width="400" height="300"/>
+
 - [Jigsaw](https://github.com/KrisNguyen135/AI-Approaches/tree/master/GeneticAlgorithm/Jigsaw):
 customized, more involved fitness crossover functions
+
+<img src="https://github.com/KrisNguyen135/Genetic-Jigsaw-Solver/blob/master/Media/Jigsaw/combined.gif" width="300" height="300"/>
+
 - [Traveling salesman](https://github.com/KrisNguyen135/AI-Approaches/tree/master/GeneticAlgorithm/TravelingSalesman):
 elitism and ordered crossover
  
