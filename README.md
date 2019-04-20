@@ -19,7 +19,10 @@ there is still significant low-level specification.
  
 Games:
 - [Maze](https://github.com/KrisNguyen135/AI-Approaches/tree/master/PathFinding/Maze):
-breadth-first search (to be mentioned: depth-first search, river crossing puzzles)
+breadth-first search (to be mentioned: best-first search, river crossing puzzles)
+
+<img src="https://github.com/KrisNguyen135/AI-Approaches/blob/master/Media/Maze/combined.gif" width="400" height="300"/>
+
 - [Sudoku](https://github.com/KrisNguyen135/AI-Approaches/tree/master/PathFinding/Sudoku):
 depth-first search (to be mentioned: why not BFS)
 ```
@@ -72,10 +75,12 @@ gradient descent)
 - [Jigsaw](https://github.com/KrisNguyen135/AI-Approaches/tree/master/GeneticAlgorithm/Jigsaw):
 customized, more involved fitness crossover functions
 
-<img src="https://github.com/KrisNguyen135/Genetic-Jigsaw-Solver/blob/master/Media/Jigsaw/combined.gif" width="300" height="300"/>
+<img src="https://github.com/KrisNguyen135/AI-Approaches/blob/master/Media/Jigsaw/combined.gif" width="400" height="400"/>
 
 - [Traveling salesman](https://github.com/KrisNguyen135/AI-Approaches/tree/master/GeneticAlgorithm/TravelingSalesman):
 elitism and ordered crossover
+ 
+ <img src="https://github.com/KrisNguyen135/AI-Approaches/blob/master/Media/TravelingSalesman/combined.gif" width="400" height="300"/>
  
 ## Reinforcement learning
  

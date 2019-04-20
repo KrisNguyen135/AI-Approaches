@@ -62,15 +62,11 @@ class Solver:
         sorted_pop = [ind for fitness, ind in
                       reversed(sorted(zip(fitnesses, self.temp_pop)))]
 
-        id_cdf = [i for i in range(len(sorted_pop)) for _ in range(i)]
-
         # Elitism
-        if self.prev_pop is not None:
-            new_pop = self.prev_pop[: -int(self.pop_size * self.elite_size)]
-        else:
-            new_pop = []
+        new_pop = sorted_pop[-int(self.pop_size * self.elite_size):]
 
         # Generate via crossover
+        id_cdf = [i for i in range(len(sorted_pop)) for _ in range(i)]
         for i in range(int(self.pop_size * (1 - self.random_size))):
             parent1_id = 0
             parent2_id = 0
@@ -97,11 +93,12 @@ class Solver:
             print(self.prev_pop[-1])
             self.viz_func(self.prev_pop[-1])
             print(f'Fitness: {self.fitness(self.prev_pop[-1])}')
+            print()
 
         return self.prev_pop[-1]
 
 
 if __name__ == '__main__':
     game = Game(7)
-    solver = Solver(7, game.dis_matrix, game.visualize_solution, n_gens=5)
+    solver = Solver(7, game.dis_matrix, game.visualize_solution, n_gens=10)
     solver.run()
