@@ -66,7 +66,7 @@ class Solver:
         if update_again:
             self.auto_update()
 
-    def recur_solve(self):
+    def recur_solve(self, recur_count):
         self.auto_update()
 
         possible_values = self.get_possible_values()
@@ -82,11 +82,11 @@ class Solver:
                 min_n_values = len(value)
                 branch_location = location
 
+        saved_board = deepcopy(self.board)
         for branch_value in possible_values[branch_location]:
             # To discuss: number of branches needed as difficulty increases
-            saved_board = deepcopy(self.board)
             self.board[branch_location[0]][branch_location[1]] = branch_value
-            valid_solution = self.recur_solve()
+            valid_solution = self.recur_solve(recur_count + 1)
 
             if not valid_solution:
                 self.board = saved_board
@@ -96,14 +96,14 @@ class Solver:
         return False
 
     def solve(self):
-        self.recur_solve()
+        self.recur_solve(0)
 
 
 if __name__ == '__main__':
     game = Game(input_='input/hard.txt')
     print(game)
 
-    solver = Solver(game.board)
+    solver = Solver(deepcopy(game.board))
     solver.solve()
     for row in range(9):
         for col in range(9):
