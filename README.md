@@ -101,17 +101,11 @@ Games:
 - Nim (revisited): line fitting with ML
 - Minesweeper (revisited): pattern processing with DL
  
-## NEAT
+## Beyond deep learning
  
-Combine deep learning and genetic algorithm.
+Combine deep learning with other AI approaches.
  
 Games:
-- [Flappy Birds](https://github.com/KrisNguyen135/AI-Approaches/tree/master/NEAT/Flappy)
-- Pacman
-- Chrome T-Rex
- 
-## Deep reinforcement learning
- 
-Combine deep learning and reinforcement learning.
- 
-Games: **Pending**
+- [Flappy Birds](https://github.com/KrisNguyen135/AI-Approaches/tree/master/NEAT/Flappy):
+Neat (neural networks + genetic algorithm) (to be mentioned: Chrome T-Rex)
+- Something about deep reinforcement learning
