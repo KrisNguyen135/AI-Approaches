@@ -56,14 +56,14 @@ class Solver:
         for round in range(num_rounds):
             print()
             print('=' * 40)
-            print(f'Round {round}:')
+            print(f'Round {round}')
 
             self.temp_sequence = []
 
             game = Game(
                 self.num_sticks,
                 self.max_sticks,
-                player_first=(random.randint(0, 1)==0),
+                player_first=(random.randint(0, 1) == 0),
                 hard=True,
                 auto=self.make_move
             )
@@ -75,6 +75,7 @@ class Solver:
 
     def save(self):
         self.q_table.to_csv(self.file)
+
 
 if __name__ == '__main__':
     '''solver = Solver(13, 3')

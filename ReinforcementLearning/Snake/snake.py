@@ -5,9 +5,11 @@ import time
 
 
 class Game:
-    def __init__(self, auto=None, show=False):
+    def __init__(self, auto=None, show=False, limit=1000):
         self.auto = auto
         self.show = show
+        self.limit = limit
+        self.limit_count = 0
 
         self.food = vector(0, 0)
         self.snake = [vector(10, 0), vector(20, 0)]
@@ -36,16 +38,22 @@ class Game:
         if head == self.food:
             self.food.x = randrange(-15, 15) * 10
             self.food.y = randrange(-15, 15) * 10
+            self.limit_count = 0
         else:
             self.snake.pop(0)
+            self.limit_count += 1
 
-        turtle.clear()
+            if self.limit_count > self.limit:
+                return False
 
-        for body in self.snake:
-            square(body.x, body.y, 9, 'black')
+        if self.show:
+            turtle.clear()
 
-        square(self.food.x, self.food.y, 9, 'green')
-        turtle.update()
+            for body in self.snake:
+                square(body.x, body.y, 9, 'black')
+
+            square(self.food.x, self.food.y, 9, 'green')
+            turtle.update()
 
         # Collect stats and feed to AI
         if self.auto is not None:
