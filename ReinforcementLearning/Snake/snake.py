@@ -1,5 +1,5 @@
 import turtle
-from random import randrange
+import random; random.seed(0)
 from freegames import square, vector
 import time
 
@@ -36,8 +36,8 @@ class Game:
         self.snake.append(head)
 
         if head == self.food:
-            self.food.x = randrange(-15, 15) * 10
-            self.food.y = randrange(-15, 15) * 10
+            self.food.x = random.randrange(-15, 15) * 10
+            self.food.y = random.randrange(-15, 15) * 10
             self.limit_count = 0
         else:
             self.snake.pop(0)
@@ -84,9 +84,9 @@ class Game:
             return 2
 
         if head.x < neck.x:
-            return 3
+            return 1
 
-        return 1
+        return 3
 
     def run(self):
         if self.show:
@@ -106,7 +106,7 @@ class Game:
 
             keep_moving = self.move()
 
-        return len(self.snake)
+        return len(self.snake) - 2
 
     @staticmethod
     def inside(head):
