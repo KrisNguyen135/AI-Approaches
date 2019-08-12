@@ -4,6 +4,7 @@ from ReinforcementLearning.Nim.nim import Game  # if executing from directory ro
 import os
 import pandas as pd
 import random
+from tqdm import tqdm
 
 
 class Solver:
@@ -50,14 +51,9 @@ class Solver:
         return move
 
     def train(self, num_rounds):
-        print('Started training...')
-
         self.training = True
-        for round in range(num_rounds):
-            print()
-            print('=' * 40)
-            print(f'Round {round}')
 
+        for _ in tqdm(range(num_rounds), desc='Training progress'):
             self.temp_sequence = []
 
             game = Game(

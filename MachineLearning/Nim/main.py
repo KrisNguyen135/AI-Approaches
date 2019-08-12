@@ -1,4 +1,4 @@
-from ReinforcementLearning.Nim.nim import Game  # if executing from directory root
+from MachineLearning.Nim.nim import Game  # if executing from directory root
 #from nim import Game  # if executing from current directory
 
 

@@ -100,7 +100,7 @@ random exploration or low-level specification.
 Games:
 - Nim (revisited): line fitting with ML
 - Minesweeper (revisited): pattern processing with DL
- 
+
 ## Beyond deep learning
  
 Combine deep learning with other AI approaches.
