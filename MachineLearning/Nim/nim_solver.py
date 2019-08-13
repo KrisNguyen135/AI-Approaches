@@ -39,18 +39,16 @@ class Solver:
 
         return random.choice(potential_wins)
 
-        return move
-
     def train(self, num_samples, num_stick_choices, visualize=False):
         self.training = True
 
         X = []
         y = []
 
+        # Generate the training data.
         num_wins = 0
         num_losses = 0
 
-        # Generate the training data.
         while num_wins < num_samples or num_losses < num_samples:
             self.temp_X = []
 
