@@ -1,8 +1,9 @@
-from CombinedDeepLearning.Flappy.flappy import Game  # if executing from directory root
+from MachineLearning.Flappy.flappy import Game  # if executing from directory root
 #from flappy import Game  # if executing from current directory
 
 import neat
 import pickle
+from MachineLearning.Flappy.visualize import draw_net
 
 
 def eval_genomes(genomes, config):
@@ -43,5 +44,28 @@ def run(config_file, run_winner=False, winner_name='winner'):
 if __name__ == '__main__':
     #run('config-feedforward')
 
-    for _ in range(5):
-        run('config-feedforward', run_winner=True)
+    #for _ in range(5):
+    #    run('config-feedforward', run_winner=True)
+
+    genomes = [
+        'winner_20(pop)_10(gen)',
+        'winner_50_100',
+        'winner_100_100',
+        'winner_100_200',
+        'winner'
+    ]
+
+    config = neat.Config(neat.DefaultGenome, neat.DefaultReproduction,
+                         neat.DefaultSpeciesSet, neat.DefaultStagnation,
+                         'config-feedforward')
+
+    for g in genomes:
+        print(f'Running: {g}')
+
+        with open(g, 'rb') as f:
+            c = pickle.load(f)
+
+        dot = draw_net(config, c)
+        dot.view()
+
+        run('config-feedforward', run_winner=True, winner_name=g)
