@@ -1,4 +1,4 @@
-from NEAT.Flappy.flappy import Game  # if executing from directory root
+from CombinedDeepLearning.Flappy.flappy import Game  # if executing from directory root
 #from flappy import Game  # if executing from current directory
 
 import neat
