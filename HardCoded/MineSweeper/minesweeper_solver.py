@@ -1,7 +1,7 @@
 from HardCoded.MineSweeper.minesweeper import Game  # if executing from directory root
 #from minesweeper import Game  # if executing from current directory
 
-import random#; random.seed(1)
+import random; random.seed(5)
 
 
 class Solver:
@@ -91,5 +91,6 @@ def generate_action(board):
 
 
 if __name__ == '__main__':
+    #game = Game()
     game = Game(auto=generate_action)
     game.run()
